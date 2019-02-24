@@ -96,7 +96,7 @@ class RrcDataset(utils.Dataset):
         subset: Subset to load: train or val
         """
         
-        rrc_json = COCO("{}/{}/annotations.json".format(dataset_dir, subset))
+        rrc_json = COCO("{}/{}/annotations2.json".format(dataset_dir, subset))
         
         # Add classes. We have only one class to add.
         self.add_class("balloon", 1, "balloon")
@@ -122,7 +122,7 @@ class RrcDataset(utils.Dataset):
         # }
         # We mostly care about the x and y coordinates of each region
         # Note: In VIA 2.0, regions was changed from a dict to a list.
-        annotations = json.load(open(os.path.join(dataset_dir, "annotations.json")))
+        annotations = json.load(open(os.path.join(dataset_dir, "annotations2.json")))
         annotations = list(annotations.values())  # don't need the dict keys
 
         # The VIA tool saves images in the JSON even if they don't have any
